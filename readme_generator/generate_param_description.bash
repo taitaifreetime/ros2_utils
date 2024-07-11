@@ -9,14 +9,14 @@ fi
 
 node_name=$1
 
-params=$(ros2 param list /$node_name)
+params=$(ros2 param list $node_name)
 
 # Function to extract parameter details and format the output
 describe_param() {
   local node=$1
   local param=$2
-  local description=$(ros2 param describe /$node $param | sed 's/^ *//')
-
+  local description=$(ros2 param describe $node $param | sed 's/^ *//')
+  
   local param_type=$(echo "$description" | grep 'Type:' | awk '{print $2}')
   local param_description=$(echo "$description" | grep 'Description:' | sed 's/Description://')
   
@@ -50,7 +50,6 @@ describe_param() {
 
 # Print the header for README
 echo "## Required Param"
-echo ""
 
 # Iterate over each parameter and describe it
 for param in $params
