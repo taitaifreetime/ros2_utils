@@ -1,9 +1,14 @@
-# package_name
+# title
+***THIS DOCUMENTATION WAS MADE BY AUTO-README GENERATOR***  
+ROS2 package to do something
+## Usage
+```
+```
 ## Required Topic
 - *`/parameter_events:`* (rcl_interfaces/msg/ParameterEvent)  
 - *`/scan:`* (sensor_msgs/msg/LaserScan)  
 ## Published Topic
-- *`/osbtacles:`* (visualization_msgs/msg/MarkerArray)  
+- *`/obstacles:`* (visualization_msgs/msg/MarkerArray)  
 - *`/parameter_events:`* (rcl_interfaces/msg/ParameterEvent)  
 - *`/rosout:`* (rcl_interfaces/msg/Log)  
 ## Service Server

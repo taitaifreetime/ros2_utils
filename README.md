@@ -1,29 +1,23 @@
-# ROS2 Command Utilities
+# ROS2 Utilities
+ROS2 utilities to make your work more efficient
 
-## README Auto-Generator
+## AUTO-README GENERATOR
+- Generate README.md templete including topic, server, action, ros parameter descriptions by running ros2 commands.
 ```
 # run your ros node
+
 cd readme_generator
-bash generate_readme.bash package_name node_name > README.md
+bash generate_readme.bash package_name /node_name > ~/path/to/package_name/README.md
+
 # then modify
 ```
-### Sub features
+## Others
 - Output all ros parameter belonging to *node_name*
 ```
-bash rosparam_describe.bash node_name
+bash rosparam_describe.bash /node_name
 ```
 
 - Output all current ros parameter bleonging to *node_name*
 ```
-bash rosparam_get.bash node_name
-```
-
-- ros parameter description auto-generator
-```
-bash generate_param_description.bash node_name > param_description.md
-```
-
-- ros topic description auto-generator
-```
-bash generate_topic_description.bash node_name > topic_description.md
+bash rosparam_get.bash /node_name
 ```

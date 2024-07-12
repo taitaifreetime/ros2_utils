@@ -11,5 +11,10 @@ title=$1
 node_name=$2
 
 echo "# $title"
+echo "<!-- ***THIS DOCUMENTATION WAS MADE BY AUTO-README GENERATOR***   -->"
+echo "ROS2 package to do something"
+echo "## Usage"
+echo "\`\`\`"
+echo "\`\`\`"
 bash generate_topic_description.bash $node_name
 bash generate_param_description.bash $node_name
