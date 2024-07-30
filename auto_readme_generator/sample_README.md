@@ -1,10 +1,11 @@
-# title
-***THIS DOCUMENTATION WAS MADE BY AUTO-README GENERATOR***  
+# obstacle_detector_2d
+***THIS DOCUMENTATION WAS MADE AUTOMATICALLY***   
 ROS2 package to do something
 ## Usage
 ```
 ```
 ## Required Topic
+- *`/clock:`* (rosgraph_msgs/msg/Clock)  
 - *`/parameter_events:`* (rcl_interfaces/msg/ParameterEvent)  
 - *`/scan:`* (sensor_msgs/msg/LaserScan)  
 ## Published Topic
@@ -44,6 +45,22 @@ ROS2 package to do something
 - *`ma_interval`* (integer, default: )  
   **Description**:  ave of ma_interval samples for moving average pre-process  
   **Additional Constraints**: resolution of laserscan, ma_interval and cluster_points highly depend on each other 
+
+- *`qos_overrides./clock.subscription.depth`* (integer, default: )  
+  **Description**:  qos policy {depth} for subscription {/clock}  
+  **Read Only**: true
+
+- *`qos_overrides./clock.subscription.durability`* (string, default: )  
+  **Description**:  qos policy {durability} for subscription {/clock}  
+  **Read Only**: true
+
+- *`qos_overrides./clock.subscription.history`* (string, default: )  
+  **Description**:  qos policy {history} for subscription {/clock}  
+  **Read Only**: true
+
+- *`qos_overrides./clock.subscription.reliability`* (string, default: )  
+  **Description**:  qos policy {reliability} for subscription {/clock}  
+  **Read Only**: true
 
 - *`qos_overrides./parameter_events.publisher.depth`* (integer, default: )  
   **Description**:  qos policy {depth} for publisher {/parameter_events}  

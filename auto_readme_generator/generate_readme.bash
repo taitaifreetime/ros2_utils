@@ -11,7 +11,7 @@ title=$1
 node_name=$2
 
 echo "# $title"
-echo "<!-- ***THIS DOCUMENTATION WAS MADE BY AUTO-README GENERATOR***   -->"
+echo "***THIS DOCUMENTATION WAS MADE AUTOMATICALLY***   "
 echo "ROS2 package to do something"
 echo "## Usage"
 echo "\`\`\`"
