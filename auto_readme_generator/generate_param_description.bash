@@ -49,7 +49,7 @@ describe_param() {
 }
 
 # Print the header for README
-echo "## Required Param"
+echo "### Required Param"
 
 # Iterate over each parameter and describe it
 for param in $params

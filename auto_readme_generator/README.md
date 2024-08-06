@@ -12,7 +12,10 @@ Refer to [a sample generated README.md](sample_README.md) for an example.
 ## Usage
 ```
 # Run your ROS 2 node
-bash generate_readme.bash package_name /node_name > ~/path/to/package_name/README.md
+bash generate_readme.bash package_name /node_name1 /node_name2 /node_name3 > ~/path/to/package_name/README.md
+
+# For instance, 
+bash generate_readme.bash sample_README /cmd_vel_switcher /jtop > ~/ws/src/ros2_utils/auto_readme_generator/sample_README.md 
 
 # Then modify it as needed
 ```

@@ -38,32 +38,32 @@ describe_subscribers_publishers() {
   local publishers=$(echo "$info" | sed -n '/Publishers:/,$p' | sed '/Service Servers:/,$d' )
   local subscribers=$(echo "$info" | sed -n '/Subscribers:/,$p' | sed '/Publishers:/,$d' )
   
-  echo "## Required Topic"
+  echo "### Required Topic"
   if [ -n "$(echo "$subscribers" | sed '1d')" ]; then
     output_topics "$(echo "$subscribers" | sed '1d')"
   fi
 
-  echo "## Published Topic"
+  echo "### Published Topic"
   if [ -n "$(echo "$publishers" | sed '1d')" ]; then
     output_topics "$(echo "$publishers" | sed '1d')"
   fi
 
-  echo "## Service Server"
+  echo "### Service Server"
   if [ -n "$(echo "$service_servers" | sed '1d')" ]; then
     output_topics "$(echo "$service_servers" | sed '1d')"
   fi
 
-  echo "## Service Client"
+  echo "### Service Client"
   if [ -n "$(echo "$service_clients" | sed '1d')" ]; then
     output_topics "$(echo "$service_clients" | sed '1d')"
   fi
 
-  echo "## Action Server"
+  echo "### Action Server"
   if [ -n "$(echo "$action_servers" | sed '1d')" ]; then
     output_topics "$(echo "$action_servers" | sed '1d')"
   fi
 
-  echo "## Action Client"
+  echo "### Action Client"
   if [ -n "$(echo "$action_clients" | sed '1d')" ]; then
     output_topics "$(echo "$action_clients" | sed '1d')"
   fi
