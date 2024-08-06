@@ -13,13 +13,14 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='aisl',
-    maintainer_email='tomine@aisl.cs.tut.ac.jp',
+    maintainer='taitaifreetime',
+    maintainer_email='taiki11250628@gmail.com',
     description='TODO: Package description',
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'cmd_vel_switcher = ros2_utils.cmd_vel_switcher:main',
         ],
     },
 )

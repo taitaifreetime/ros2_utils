@@ -4,7 +4,7 @@
   <name>ros2_utils</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="tomine@aisl.cs.tut.ac.jp">aisl</maintainer>
+  <maintainer email="taiki11250628@gmail.com">taitaifreetime</maintainer>
   <license>TODO: License declaration</license>
 
   <depend>rclpy</depend>
