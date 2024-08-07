@@ -4,8 +4,6 @@ from sensor_msgs.msg import Joy
 from geometry_msgs.msg import Twist
 from rcl_interfaces.msg import ParameterDescriptor
 
-CMD_VEL1_MODE = 1
-CMD_VEL2_MODE = 2
 
 class CmdVelBridge(Node):
     def __init__(self):
@@ -16,20 +14,19 @@ class CmdVelBridge(Node):
         self.declare_parameter('trigger_index', 11, trigger_config)
         self.trigger_index_ = self.get_parameter('trigger_index').get_parameter_value().integer_value
 
-        self.sub_joy_ = self.create_subscription(Joy, 'joy', self.joy_callback, 1)
+        self.current_mode_ = True # publish cmd_vel1_
+        self.trigger_button_ = False 
         self.cmd_vel1_ = Twist()
         self.cmd_vel2_ = Twist()
         self.cmd_vel_ = Twist()
+        self.sub_joy_ = self.create_subscription(Joy, 'joy', self.joy_callback, 1)
         self.sub_vel1_ = self.create_subscription(Twist, '/input_cmd_vel1', self.vel1_callback, 1)
         self.sub_vel2_ = self.create_subscription(Twist, '/input_cmd_vel2', self.vel2_callback, 1)
         self.pub_vel_ = self.create_publisher(Twist, '/output_cmd_vel', 10)
-        self.trigger_button_ = False
-        self.current_mode_ = CMD_VEL1_MODE
+        
 
         self.get_logger().info('trigger_index: {}'.format(self.trigger_index_))
         self.get_logger().warning('cmd_vel_switcher start!!\n')
-        self.get_logger().warning('cmd_vel1 mode')
-        self.get_logger().warning('cmd_vel1 mode')
 
     def joy_callback(self, msg):
         """
@@ -41,39 +38,31 @@ class CmdVelBridge(Node):
 
         # self.get_logger().info('{}'.format(msg))
         if msg.buttons[self.trigger_index_] and not self.trigger_button_:
-
-            if self.current_mode_ is CMD_VEL1_MODE:
-                self.current_mode_ = CMD_VEL2_MODE
-                self.get_logger().warning('cmd_vel2 mode')
-                self.get_logger().warning('cmd_vel2 mode')
-
-            elif self.current_mode_ is CMD_VEL2_MODE:
-                self.current_mode_ = CMD_VEL1_MODE
-                self.get_logger().warning('cmd_vel1 mode')
-                self.get_logger().warning('cmd_vel1 mode')
+            self.current_mode_ = not self.current_mode_
+            self.get_logger().info('cmd_vel mode: {}'.format(self.current_mode_))
         
         self.trigger_button_ = msg.buttons[self.trigger_index_]
 
     def vel1_callback(self, msg):
         """
-        publish 1st cmd_vel resource if CMD_VEL1_MODE 
+        publish 1st cmd_vel resource if current_mode == true 
 
         Args:
             msg (geometry_msgs.msg.Twist): cmd_vel1
         """
 
-        if self.current_mode_ is CMD_VEL1_MODE:
+        if self.current_mode_:
             self.pub_vel_.publish(msg)
 
     def vel2_callback(self, msg):
         """
-        2nd cmd_vel resource if CMD_VEL2_MODE 
+        publish 2nd cmd_vel resource if current_mode == false 
 
         Args:
             msg (geometry_msgs.msg.Twist): cmd_vel2
         """
 
-        if self.current_mode_ is CMD_VEL2_MODE:
+        if not self.current_mode_:
             self.pub_vel_.publish(msg)
 
 
