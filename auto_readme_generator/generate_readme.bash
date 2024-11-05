@@ -13,7 +13,10 @@ shift  # Remove the first argument (title) and shift all remaining arguments
 echo "# $title"
 echo "***THIS DOCUMENTATION WAS MADE AUTOMATICALLY***  "
 echo "ROS2 package to do something"
-echo "## Usage"
+echo "## :gear: Prepare"
+echo "\`\`\`"
+echo "\`\`\`"
+echo "## :rocket: Getting Started"
 echo "\`\`\`"
 echo "\`\`\`"
 
@@ -23,3 +26,6 @@ for node_name in "$@"; do
   bash generate_topic_description.bash $node_name
   bash generate_param_description.bash $node_name
 done
+
+echo "## :books: Reference"
+echo "- []()"

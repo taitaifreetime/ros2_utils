@@ -1,60 +1,55 @@
-# sample_README
+# rviz
 ***THIS DOCUMENTATION WAS MADE AUTOMATICALLY***  
 ROS2 package to do something
-## Usage
+## :gear: Prepare
 ```
 ```
-## /cmd_vel_switcher node
+## :rocket: Getting Started
+```
+```
+## /rviz node
 ### Required Topic
-- *`/joy:`* (sensor_msgs/msg/Joy)  
-- *`/joy/cmd_vel:`* (geometry_msgs/msg/Twist)  
-- *`/your_planner/cmd_vel:`* (geometry_msgs/msg/Twist)  
+- *`/parameter_events:`* (rcl_interfaces/msg/ParameterEvent)  
 ### Published Topic
-- *`/out/cmd_vel:`* (geometry_msgs/msg/Twist)  
+- *`/clicked_point:`* (geometry_msgs/msg/PointStamped)  
+- *`/goal_pose:`* (geometry_msgs/msg/PoseStamped)  
+- *`/initialpose:`* (geometry_msgs/msg/PoseWithCovarianceStamped)  
 - *`/parameter_events:`* (rcl_interfaces/msg/ParameterEvent)  
 - *`/rosout:`* (rcl_interfaces/msg/Log)  
 ### Service Server
-- *`/cmd_vel_switcher/describe_parameters:`* (rcl_interfaces/srv/DescribeParameters)  
-- *`/cmd_vel_switcher/get_parameter_types:`* (rcl_interfaces/srv/GetParameterTypes)  
-- *`/cmd_vel_switcher/get_parameters:`* (rcl_interfaces/srv/GetParameters)  
-- *`/cmd_vel_switcher/list_parameters:`* (rcl_interfaces/srv/ListParameters)  
-- *`/cmd_vel_switcher/set_parameters:`* (rcl_interfaces/srv/SetParameters)  
-- *`/cmd_vel_switcher/set_parameters_atomically:`* (rcl_interfaces/srv/SetParametersAtomically)  
+- *`/rviz/describe_parameters:`* (rcl_interfaces/srv/DescribeParameters)  
+- *`/rviz/get_parameter_types:`* (rcl_interfaces/srv/GetParameterTypes)  
+- *`/rviz/get_parameters:`* (rcl_interfaces/srv/GetParameters)  
+- *`/rviz/list_parameters:`* (rcl_interfaces/srv/ListParameters)  
+- *`/rviz/set_parameters:`* (rcl_interfaces/srv/SetParameters)  
+- *`/rviz/set_parameters_atomically:`* (rcl_interfaces/srv/SetParametersAtomically)  
 ### Service Client
 ### Action Server
 ### Action Client
 
 ### Required Param
-- *`trigger_index`* (integer, default: )  
-  **Description**:  switch cmd_vel according to this index button  
+- *`qos_overrides./parameter_events.publisher.depth`* (integer, default: )  
+  **Description**:  qos policy {depth} for publisher {/parameter_events}  
+  **Read Only**: true
+
+- *`qos_overrides./parameter_events.publisher.durability`* (string, default: )  
+  **Description**:  qos policy {durability} for publisher {/parameter_events}  
+  **Read Only**: true
+
+- *`qos_overrides./parameter_events.publisher.history`* (string, default: )  
+  **Description**:  qos policy {history} for publisher {/parameter_events}  
+  **Read Only**: true
+
+- *`qos_overrides./parameter_events.publisher.reliability`* (string, default: )  
+  **Description**:  qos policy {reliability} for publisher {/parameter_events}  
+  **Read Only**: true
+
+- *`tf_buffer_cache_time_ms`* (integer, default: )  
+  **Description**:  Configure the rviz tf buffer cache time [ms].  
+  **Read Only**: true
 
 - *`use_sim_time`* (boolean, default: )  
   **Description**:   
 
-## /jtop node
-### Required Topic
-### Published Topic
-- *`/jtop:`* (jtop_orinnx_msgs/msg/Jtop)  
-- *`/parameter_events:`* (rcl_interfaces/msg/ParameterEvent)  
-- *`/rosout:`* (rcl_interfaces/msg/Log)  
-### Service Server
-- *`/jtop/describe_parameters:`* (rcl_interfaces/srv/DescribeParameters)  
-- *`/jtop/get_parameter_types:`* (rcl_interfaces/srv/GetParameterTypes)  
-- *`/jtop/get_parameters:`* (rcl_interfaces/srv/GetParameters)  
-- *`/jtop/list_parameters:`* (rcl_interfaces/srv/ListParameters)  
-- *`/jtop/set_parameters:`* (rcl_interfaces/srv/SetParameters)  
-- *`/jtop/set_parameters_atomically:`* (rcl_interfaces/srv/SetParametersAtomically)  
-### Service Client
-### Action Server
-### Action Client
-
-### Required Param
-- *`interval`* (double, default: )  
-  **Description**:  jtop frequency in seconds  
-
-- *`max_num_cpus`* (integer, default: )  
-  **Description**:  the number pf cpu cores (e.g. 8 cores for Jetson Orin NX 16GB)  
-
-- *`use_sim_time`* (boolean, default: )  
-  **Description**:   
-
+## :books: Reference
+- []()
