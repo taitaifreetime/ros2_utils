@@ -16,9 +16,10 @@ echo "ROS2 package to do something"
 echo "## :gear: Prepare"
 echo "\`\`\`"
 echo "\`\`\`"
-echo "## :rocket: Getting Started"
+echo "## :rocket: Quick Start !"
 echo "\`\`\`"
 echo "\`\`\`"
+echo "## :thinking: How ?"
 
 # Iterate over each node name
 for node_name in "$@"; do
